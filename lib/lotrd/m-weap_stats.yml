@@ -1,0 +1,33 @@
+---
+:Sharpened Stake (Str + 10):
+  :tier: 1
+  :cost: 100
+  :playerStr: 10
+  :playerAgi: 0
+  :playerInt: 0
+  :playerDex: 0
+  :playerLck: 0
+:Tree Branch (Int + 10):
+  :tier: 1
+  :cost: 100
+  :playerStr: 0
+  :playerAgi: 0
+  :playerInt: 10
+  :playerDex: 0
+  :playerLck: 0
+:Fish Bone (Str + 5, Agi + 5):
+  :tier: 1
+  :cost: 100
+  :playerStr: 5
+  :playerAgi: 5
+  :playerInt: 0
+  :playerDex: 0
+  :playerLck: 0
+:Sling Shot (Dex + 10):
+  :tier: 1
+  :cost: 100
+  :playerStr: 0
+  :playerAgi: 0
+  :playerInt: 0
+  :playerDex: 10
+  :playerLck: 0

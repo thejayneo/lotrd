@@ -1,0 +1,37 @@
+---
+:Paper Bag (HP + 10, Dex - 5):
+  :tier: 1
+  :cost: 100
+  :playerHP: 10
+  :playerStr: 0
+  :playerAgi: 0
+  :playerInt: 0
+  :playerDex: -5
+  :playerLck: 0
+:Cardboard Box (HP + 10, Str + 5):
+  :tier: 1
+  :cost: 250
+  :playerHP: 10
+  :playerStr: 5
+  :playerAgi: 0
+  :playerInt: 0
+  :playerDex: 0
+  :playerLck: 0
+:Fishing Net (HP + 15, Agi - 5):
+  :tier: 1
+  :cost: 100
+  :playerHP: 15
+  :playerStr: 0
+  :playerAgi: -5
+  :playerInt: 0
+  :playerDex: 0
+  :playerLck: 0
+:Birthday Suit (Lck + 20):
+  :tier: 2
+  :cost: 400
+  :playerHP: 0
+  :playerStr: 0
+  :playerAgi: 0
+  :playerInt: 0
+  :playerDex: 0
+  :playerLck: 20

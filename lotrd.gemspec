@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{"CLI text-based RPF app. Inspired by Legend of the Red Dragon and Legendd of the Green Dragon."}
   spec.description   = %q{"Create your character, slay enemies, stare at yourself, hoarde gold, get shiny things, stare at yourself some more!"}
-  spec.homepage      = "https://github.com/thejayneo/cli-app"
+  spec.homepage      = "https://github.com/thejayneo/lotrd"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -21,8 +21,8 @@ Gem::Specification.new do |spec|
     spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
     spec.metadata["homepage_uri"] = spec.homepage
-    spec.metadata["source_code_uri"] = "https://github.com/thejayneo/cli-app"
-    spec.metadata["changelog_uri"] = "https://github.com/thejayneo/cli-app"
+    spec.metadata["source_code_uri"] = "https://github.com/thejayneo/lotrd"
+    spec.metadata["changelog_uri"] = "https://github.com/thejayneo/lotrd"
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
       "public gem pushes."

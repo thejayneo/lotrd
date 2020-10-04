@@ -1,4 +1,4 @@
-require_relative 'm-race'
+require_relative '../model/race'
 
 class Job < Race
     attr_accessor :hp, :str, :agi, :dex, :int, :lck

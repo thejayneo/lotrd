@@ -1,14 +1,14 @@
 require 'yaml'
 require 'colorize'
 
-require_relative 'v-town'
-require_relative 'c-bankController.rb'
+require_relative '../view/town'
+require_relative '../controller/bankController.rb'
 
 module Bank
 	def start
 		system 'clear'
 		puts "Hazelwood Bank" + "\n" + "=" * 40 + "\n"*2
-        @player = YAML.load(File.read("m-playerdata.yml"))
+        @player = YAML.load(File.read("../model/playerdata.yml"))
 		puts "#{@player.name.colorize(:yellow)}, welcome to Hazelwood bank!"
 		sleep(3)
 		menu
@@ -28,7 +28,7 @@ module Bank
 
 	def balance
 		system 'clear'
-        player = YAML.load(File.read("m-playerdata.yml"))
+        player = YAML.load(File.read("../model/playerdata.yml"))
         gold = player.gold
 		balance = player.balance
 		puts "Hazelwood Bank => Balance" + "\n" + "=" * 40 + "\n"*2

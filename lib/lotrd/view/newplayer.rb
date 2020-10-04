@@ -1,5 +1,5 @@
-require_relative 'c-playergen'
-require_relative 'v-town'
+require_relative '../controller/playergen'
+require_relative '../view/town'
 require 'yaml'
 
 module NewPlayer

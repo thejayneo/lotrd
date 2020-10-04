@@ -1,7 +1,4 @@
-require_relative 'lotrd/v-town.rb'
-require_relative 'lotrd/v-newplayer'
-require_relative 'lotrd/c-check'
-require_relative 'lotrd/'
+require_relative 'lotrd/controller/check'
 
 require 'colorize'
 require 'artii'

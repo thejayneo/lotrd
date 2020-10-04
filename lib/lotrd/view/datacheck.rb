@@ -1,4 +1,6 @@
-require_relative 'v-newplayer'
+require_relative '../view/newplayer'
+require_relative '../view/town'
+
 require 'artii'
 
 module DataCheck
@@ -19,7 +21,7 @@ module DataCheck
     end
 
     def present
-        player = YAML.load(File.read("m-playerdata.yml"))
+        player = YAML.load(File.read("../model/playerdata.yml"))
         titleStyle = Artii::Base.new :font => 'slant'
         system 'clear'
         puts "Player data located. Welcome back," +"\n"*4 + "#{(titleStyle.asciify(player.name)).colorize(:yellow)}"

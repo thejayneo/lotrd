@@ -4,9 +4,9 @@ require 'colorize'
 require 'artii'
 require 'terminal-table'
 
-require_relative 'v-town'
-require_relative 'm-player'
-require_relative 'c-leaderboardController'
+require_relative '../view/town'
+require_relative '../model/player'
+require_relative '../controller/leaderboardController'
 
 
 module Leaderboard
@@ -20,7 +20,7 @@ module Leaderboard
     end
 
     def loadIn
-        @player = YAML.load(File.read("m-playerdata.yml"))
+        @player = YAML.load(File.read("../model/playerdata.yml"))
         @name = @player.name
         @gold = @player.gold
         @balance = @player.balance

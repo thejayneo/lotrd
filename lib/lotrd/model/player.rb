@@ -1,4 +1,4 @@
-require_relative 'm-job'
+require_relative '../model/job'
 
 class Player < Job
     attr_reader :name

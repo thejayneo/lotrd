@@ -1,5 +1,5 @@
-require_relative "c-combatController"
-require_relative "m-events"
+require_relative "combatController"
+require_relative "../model/events"
 
 module AdventureController
     def eventDecider

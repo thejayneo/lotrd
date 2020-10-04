@@ -2,8 +2,8 @@ require 'yaml'
 require 'tty-prompt'
 require 'colorize'
 
-require_relative 'm-mob'
-require_relative 'v-combatView'
+require_relative '../model/mob'
+require_relative '../view/combatView'
 
 module CombatSim
     def start
@@ -12,7 +12,7 @@ module CombatSim
         mob1.jobGen
         mob1.nameGen
         #Load player stats
-            player = YAML.load(File.read("m-playerdata.yml"))
+            player = YAML.load(File.read("../model/playerdata.yml"))
             @currentPlayerHP = player.hp
             @currentPlayerStr = player.str
             @currentPlayerAgi = player.agi
@@ -119,10 +119,10 @@ module CombatSim
     end
 
     def reward
-        player = YAML.load(File.read("m-playerdata.yml"))
+        player = YAML.load(File.read("../model/playerdata.yml"))
         drop = rand(20..200)
         player.gold += drop
-        File.open('m-playerdata.yml', 'w') {|file| File.write('m-playerdata.yml', player.to_yaml)}
+        File.open('../model/playerdata.yml', 'w') {|file| File.write('../model/playerdata.yml', player.to_yaml)}
         ::CombatView.victory(drop)
     end
 
@@ -131,7 +131,7 @@ module CombatSim
         player.gold = 0
         player.armour = nil
         player.weapon = nil
-        File.open('m-playerdata.yml', 'w') {|file| File.write('m-playerdata.yml', player.to_yaml)}
+        File.open('../model/playerdata.yml', 'w') {|file| File.write('../model/playerdata.yml', player.to_yaml)}
         ::CombatView.defeat
     end
 

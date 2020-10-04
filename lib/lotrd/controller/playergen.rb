@@ -1,7 +1,7 @@
-require_relative 'v-newplayer'
-require_relative 'm-player'
-require_relative 'm-race'
-require_relative 'm-job'
+require_relative '../view/newplayer'
+require_relative '../model/player'
+require_relative '../model/race'
+require_relative '../model/job'
 
 module PlayerGen
     def playerName(input)
@@ -54,7 +54,7 @@ module PlayerGen
                     system 'clear'
                     ::NewPlayer.jobOptions
                 end
-                File.open('m-playerdata.yml', 'w') {|file| File.write('m-playerdata.yml', @player.to_yaml)}
+                File.open('../model/playerdata.yml', 'w') {|file| File.write('../model/playerdata.yml', @player.to_yaml)}
             end
     module_function :race, 
                     :job, 

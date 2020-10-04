@@ -1,6 +1,6 @@
 require 'colorize'
-require_relative 'c-combatController.rb'
-require_relative 'v-town'
+require_relative '../controller/combatController.rb'
+require_relative '../view/town'
 
 module CombatView
     def start(mob)

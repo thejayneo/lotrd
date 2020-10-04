@@ -2,9 +2,9 @@ require 'yaml'
 require 'tty-prompt'
 require 'colorize'
 
-require_relative 'm-player'
-require_relative 'c-storeBuy'
-require_relative 'v-town'
+require_relative '../model/player'
+require_relative '../controller/storeBuy'
+require_relative '../view/town'
 
 module Store
     def menu
@@ -22,7 +22,7 @@ module Store
     def weapons_menu
         system 'clear'
         puts "Hephy's Forge -> Weapons Menu" + "\n" + "=" * 40 + "\n"*2
-        weap_stats = YAML.load(File.read("m-weap_stats.yml"))
+        weap_stats = YAML.load(File.read("../model/weap_stats.yml"))
         weap_list = weap_stats.keys
         prompt = TTY::Prompt.new
         prompt.select("Here's what we have in stock today:") do |menu|
@@ -36,7 +36,7 @@ module Store
     def armour_menu
         system 'clear'
         puts "Hephy's Forge -> Armours Menu" + "\n" + "=" * 40 + "\n"*2
-        arm_stats = YAML.load(File.read("m-arm_stats.yml"))
+        arm_stats = YAML.load(File.read("../model/arm_stats.yml"))
         arm_list = arm_stats.keys
         prompt = TTY::Prompt.new
         prompt.select("Here's what we have in stock today:") do |menu|
@@ -57,7 +57,7 @@ module Store
 
     def leave
         system 'clear'
-        player = YAML.load(File.read("model/playerdata.yml"))
+        player = YAML.load(File.read("../model/playerdata.yml"))
         puts "Hephy's Forge" + "\n" + "=" * 40 + "\n"*2
         puts "Stay alive out there, #{player.name.colorize(:yellow)}!"
         sleep(3)

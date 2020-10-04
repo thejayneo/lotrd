@@ -1,8 +1,8 @@
-require_relative 'v-datacheck.rb'
+require_relative '../view/datacheck.rb'
 
 module Check
     def playerData
-        if File.size?("m-playerdata.yml") == nil
+        if File.size?("../model/playerdata.yml") == nil
             ::DataCheck.absent
         else
             ::DataCheck.present

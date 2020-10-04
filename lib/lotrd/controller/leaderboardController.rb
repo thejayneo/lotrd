@@ -2,19 +2,19 @@ require 'yaml'
 require 'tty-prompt'
 require 'colorize'
 
-require_relative 'v-town'
-require_relative 'v-leaderboard.rb'
+require_relative '../view/town'
+require_relative '../view/leaderboard.rb'
 
 module LeaderboardController
     def menu(input)
         narcissist = input
-        player = YAML.load(File.read("m-playerdata.yml"))
+        player = YAML.load(File.read("../model/playerdata.yml"))
         achievement = player.achievements
 
         if (narcissist > 3 && achievement.include?('Narcissist') == false)
             achievement << 'Narcissist'
             player.achievements = achievement
-            File.open('m-playerdata.yml', 'w') {|file| File.write('m-playerdata.yml', player.to_yaml)}
+            File.open('../model/playerdata.yml', 'w') {|file| File.write('../model/playerdata.yml', player.to_yaml)}
             Leaderboard::start
         else
             narcissist += 1

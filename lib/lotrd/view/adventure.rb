@@ -1,8 +1,8 @@
-require_relative 'm-mob'
-require_relative 'c-combatController'
-require_relative 'c-adventureController'
-require_relative 'm-events'
-require_relative 'v-town'
+require_relative '../model/mob'
+require_relative '../controller/combatController'
+require_relative '../controller/adventureController'
+require_relative '../model/events'
+require_relative '../view/town'
 
 module Adventure
     def start

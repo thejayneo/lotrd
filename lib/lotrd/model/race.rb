@@ -1,7 +1,9 @@
 class Race
-    attr_accessor :hp, :str, :agi, :int, :dex, :lck
+    attr_accessor :hp, :def, :res, :str, :agi, :int, :dex, :lck
     def initialize
         @hp = 0
+        @def = 0
+        @res = 0
         @str = 0 
         @agi = 0
         @int = 0
@@ -11,6 +13,8 @@ class Race
 
     def elf
         @hp = 20
+        @def = 10
+        @res = 20
         @str = 10 
         @agi = 30
         @int = 10
@@ -20,6 +24,8 @@ class Race
 
     def human
         @hp = 20
+        @def = 15
+        @res = 15
         @str = 20 
         @agi = 10 
         @int = 20
@@ -29,6 +35,8 @@ class Race
 
     def dwarf
         @hp = 30
+        @def = 20
+        @res = 10
         @str = 25 
         @agi = 15 
         @int = 10
@@ -38,6 +46,8 @@ class Race
 
     def god
         @hp = 99999
+        @def = 999
+        @res = 999
         @str = 999
         @agi = 999
         @int = 999
@@ -48,6 +58,8 @@ class Race
 
     def beast
         @hp = 66666
+        @def = 666
+        @res = 666
         @str = 666
         @agi = 666
         @int = 666

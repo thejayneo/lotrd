@@ -54,7 +54,7 @@ module PlayerGen
                     system 'clear'
                     ::NewPlayer.jobOptions
                 end
-                File.open('lib/lotrd/model/playerdata.yml', 'w') {|file| File.write('lib/lotrd/model/playerdata.yml', @player.to_yaml)}
+                File.open(ENV['HOME'] + "/." + "playerdata.yml", 'w') {|file| File.write(ENV['HOME'] + "/." + "playerdata.yml", @player.to_yaml)}
             end
     module_function :race, 
                     :job, 

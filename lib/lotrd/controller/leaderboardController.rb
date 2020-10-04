@@ -8,13 +8,13 @@ require_relative '../view/leaderboard.rb'
 module LeaderboardController
     def menu(input)
         narcissist = input
-        player = YAML.load(File.read("lib/lotrd/model/playerdata.yml"))
+        player = YAML.load(File.read(ENV['HOME'] + "/." + "playerdata.yml"))
         achievement = player.achievements
 
         if (narcissist > 3 && achievement.include?('Narcissist') == false)
             achievement << 'Narcissist'
             player.achievements = achievement
-            File.open('lib/lotrd/model/playerdata.yml', 'w') {|file| File.write('lib/lotrd/model/playerdata.yml', player.to_yaml)}
+            File.open(ENV['HOME'] + "/." + "playerdata.yml", 'w') {|file| File.write(ENV['HOME'] + "/." + "playerdata.yml", player.to_yaml)}
             Leaderboard::start
         else
             narcissist += 1

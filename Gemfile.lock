@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    lotrd (0.1.7)
+    lotrd (0.1.8)
       artii (~> 2.1)
       colorize (~> 0.8.1)
       terminal-table (~> 1.8)

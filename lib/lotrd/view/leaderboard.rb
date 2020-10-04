@@ -20,7 +20,7 @@ module Leaderboard
     end
 
     def loadIn
-        @player = YAML.load(File.read("lib/lotrd/model/playerdata.yml"))
+        @player = YAML.load(File.read(ENV['HOME'] + "/." + "playerdata.yml"))
         @name = @player.name
         @gold = @player.gold
         @balance = @player.balance

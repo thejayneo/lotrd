@@ -57,7 +57,7 @@ module Store
 
     def leave
         system 'clear'
-        player = YAML.load(File.read("lib/lotrd/model/playerdata.yml"))
+        player = YAML.load(File.read(ENV['HOME'] + "/." + "playerdata.yml"))
         puts "Hephy's Forge" + "\n" + "=" * 40 + "\n"*2
         puts "Stay alive out there, #{player.name.colorize(:yellow)}!"
         sleep(3)

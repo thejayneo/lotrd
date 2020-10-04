@@ -12,8 +12,10 @@ module CombatSim
         mob1.jobGen
         mob1.nameGen
         #Load player stats
-            player = YAML.load(File.read("lib/lotrd/model/playerdata.yml"))
+            player = YAML.load(File.read(ENV['HOME'] + "/." + "playerdata.yml"))
             @currentPlayerHP = player.hp
+            @currentPlayerDef = player.def
+            @currentPlayerRes = player.res
             @currentPlayerStr = player.str
             @currentPlayerAgi = player.agi
             @currentPlayerInt = player.int
@@ -22,6 +24,8 @@ module CombatSim
         #Load mob stats
             @mobName = mob1.name
             @currentMobHP = mob1.hp
+            @currentMobDef = mob1.def
+            @currentMobRes = mob1.res
             @currentMobStr = mob1.str
             @currentMobAgi = mob1.agi
             @currentMobInt = mob1.int
@@ -43,18 +47,18 @@ module CombatSim
 
     def mobHit
         @turn = 'mob'
-        @currentMobDex - @currentPlayerAgi + rand(1..5) > 0 ? ::CombatSim.mobDmg : ::CombatView.mobMiss
+        @currentMobDex - @currentPlayerAgi + rand(1..10) > 0 ? ::CombatSim.mobDmg : ::CombatView.mobMiss
     end
 
     def mobDmg
         @mobAction = rand(1..3)
         case @mobAction
         when 1
-            (@currentMobStr - @currentPlayerStr) > 0 ? dmg = (@currentMobStr - @currentPlayerStr) : dmg = 0
+            (@currentMobStr - @currentPlayerDef) > 0 ? dmg = (@currentMobStr - @currentPlayerDef) : dmg = 0
         when 2
-            (@currentMobInt - @currentPlayerInt) > 0 ? dmg = (@currentMobInt - @currentPlayerInt): dmg = 0
+            (@currentMobInt - @currentPlayerRes) > 0 ? dmg = (@currentMobInt - @currentPlayerRes): dmg = 0
         when 3
-            (@currentMobDex - @currentPlayerStr) > 0 ? dmg = (@currentMobDex - @currentPlayerStr) : dmg = 0
+            (@currentMobDex - @currentPlayerDef) > 0 ? dmg = (@currentMobDex - @currentPlayerDef) : dmg = 0
         end
         ::CombatSim.mobCrit(dmg)
     end
@@ -70,18 +74,18 @@ module CombatSim
 
     def playerHit(action)
         @turn = 'player'
-        @currentPlayerDex - @currentMobAgi + rand(1..5) > 0 ? ::CombatSim.playerDmg(action) : ::CombatView.playerMiss
+        @currentPlayerDex - @currentMobAgi + rand(1..10) > 0 ? ::CombatSim.playerDmg(action) : ::CombatView.playerMiss
     end
 
     def playerDmg(action)
         @playerAction = action
         case @playerAction
         when 1
-            (@currentPlayerStr - @currentMobStr) > 0 ? dmg = (@currentPlayerStr - @currentMobStr) : dmg = 0
+            (@currentPlayerStr - @currentMobDef) > 0 ? dmg = (@currentPlayerStr - @currentMobDef) : dmg = 0
         when 2
-            (@currentPlayerInt - @currentMobInt) > 0 ? dmg = (@currentPlayerInt - @currentMobInt): dmg = 0
+            (@currentPlayerInt - @currentMobRes) > 0 ? dmg = (@currentPlayerInt - @currentMobRes): dmg = 0
         when 3
-            (@currentPlayerDex - @currentMobStr) > 0 ? dmg = (@currentPlayerDex - @currentMobStr) : dmg = 0
+            (@currentPlayerDex - @currentMobDef) > 0 ? dmg = (@currentPlayerDex - @currentMobRes) : dmg = 0
         end
         ::CombatSim.playerCrit(dmg)
     end
@@ -119,19 +123,19 @@ module CombatSim
     end
 
     def reward
-        player = YAML.load(File.read("lib/lotrd/model/playerdata.yml"))
+        player = YAML.load(File.read(ENV['HOME'] + "/." + "playerdata.yml"))
         drop = rand(20..200)
         player.gold += drop
-        File.open('lib/lotrd/model/playerdata.yml', 'w') {|file| File.write('lib/lotrd/model/playerdata.yml', player.to_yaml)}
+        File.open(ENV['HOME'] + "/." + "playerdata.yml", 'w') {|file| File.write(ENV['HOME'] + "/." + "playerdata.yml", player.to_yaml)}
         ::CombatView.victory(drop)
     end
 
     def loss
-        player = YAML.load(File.read("lib/lotrd/model/playerdata.yml"))
+        player = YAML.load(File.read(ENV['HOME'] + "/." + "playerdata.yml"))
         player.gold = 0
         player.armour = nil
         player.weapon = nil
-        File.open('lib/lotrd/model/playerdata.yml', 'w') {|file| File.write('lib/lotrd/model/playerdata.yml', player.to_yaml)}
+        File.open(ENV['HOME'] + "/." + "playerdata.yml", 'w') {|file| File.write(ENV['HOME'] + "/." + "playerdata.yml", player.to_yaml)}
         ::CombatView.defeat
     end
 

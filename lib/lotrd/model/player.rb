@@ -2,7 +2,7 @@ require_relative '../model/job'
 
 class Player < Job
     attr_reader :name
-    attr_accessor :gold, :balance, :weapon, :armour, :achievements, :hp, :str, :dex, :int, :lck, :agi
+    attr_accessor :gold, :balance, :weapon, :armour, :achievements, :hp, :def, :res, :str, :dex, :int, :lck, :agi
     
     def initialize(name)
         @name = name
@@ -11,6 +11,7 @@ class Player < Job
         @weapon = nil
         @armour = nil
         @achievements = []
+        @status = []
     end
 
     def elf

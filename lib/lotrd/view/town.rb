@@ -12,7 +12,7 @@ require_relative '../model/events'
 module Town
     def menu
         system 'clear'
-        player = YAML.load(File.read("../model/playerdata.yml"))
+        player = YAML.load(File.read("lib/lotrd/model/playerdata.yml"))
         puts "Welcome to #{'Hazelwood'.colorize(:magenta)}, #{player.name.colorize(:yellow)}!" + "\n" + "=" * 40 + "\n"*2
         puts ::Events.town + "\n"*2
         prompt = TTY::Prompt.new
@@ -27,7 +27,7 @@ module Town
 
     def quit
         system 'clear'
-        player = YAML.load(File.read("../model/playerdata.yml"))
+        player = YAML.load(File.read("lib/lotrd/model/playerdata.yml"))
         system 'clear'
         titleStyle = Artii::Base.new :font => 'slant'
         puts "Thanks for playing! See you next time," +"\n"*4 + "#{(titleStyle.asciify(player.name)).colorize(:yellow)}"

@@ -8,7 +8,7 @@ module Bank
 	def start
 		system 'clear'
 		puts "Hazelwood Bank" + "\n" + "=" * 40 + "\n"*2
-        @player = YAML.load(File.read("../model/playerdata.yml"))
+        @player = YAML.load(File.read("lib/lotrd/model/playerdata.yml"))
 		puts "#{@player.name.colorize(:yellow)}, welcome to Hazelwood bank!"
 		sleep(3)
 		menu
@@ -28,7 +28,7 @@ module Bank
 
 	def balance
 		system 'clear'
-        player = YAML.load(File.read("../model/playerdata.yml"))
+        player = YAML.load(File.read("lib/lotrd/model/playerdata.yml"))
         gold = player.gold
 		balance = player.balance
 		puts "Hazelwood Bank => Balance" + "\n" + "=" * 40 + "\n"*2

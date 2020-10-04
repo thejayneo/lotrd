@@ -21,7 +21,7 @@ module DataCheck
     end
 
     def present
-        player = YAML.load(File.read("../model/playerdata.yml"))
+        player = YAML.load(File.read("lib/lotrd/model/playerdata.yml"))
         titleStyle = Artii::Base.new :font => 'slant'
         system 'clear'
         puts "Player data located. Welcome back," +"\n"*4 + "#{(titleStyle.asciify(player.name)).colorize(:yellow)}"

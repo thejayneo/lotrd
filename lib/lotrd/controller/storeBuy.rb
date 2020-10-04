@@ -6,8 +6,8 @@ module Buy
     def weapon(item)
         system 'clear'
         puts "Hephy's Forge -> Weapons Menu -> Weapon Purchase" + "\n" + "=" * 40 + "\n"*2
-        player = YAML.load(File.read("../model/playerdata.yml"))
-        weap_stats = YAML.load(File.read("../model/weap_stats.yml"))
+        player = YAML.load(File.read("lib/lotrd/model/playerdata.yml"))
+        weap_stats = YAML.load(File.read("lib/lotrd/model/weap_stats.yml"))
         gold = player.gold
         weapon = player.weapon
         hp = player.hp
@@ -45,7 +45,7 @@ module Buy
         player.dex = dex
         player.int = int
         player.lck = lck
-        File.open('../model/playerdata.yml', 'w') {|file| File.write('../model/playerdata.yml', player.to_yaml)}
+        File.open('lib/lotrd/model/playerdata.yml', 'w') {|file| File.write('lib/lotrd/model/playerdata.yml', player.to_yaml)}
         sleep(3)
         ::Store.menu
     end
@@ -53,8 +53,8 @@ module Buy
     def armour(item)
         system 'clear'
         puts "Hephy's Forge -> Armours Menu -> Armour Purchase" + "\n" + "=" * 40 + "\n"*2
-        player = YAML.load(File.read("../model/player.rbplayerdata.yml"))
-        arm_stats = YAML.load(File.read("../model/arm_stats.yml"))
+        player = YAML.load(File.read("lib/lotrd/model/playerdata.yml"))
+        arm_stats = YAML.load(File.read("lib/lotrd/model/arm_stats.yml"))
         gold = player.gold
         armour = player.armour
         hp = player.hp
@@ -95,7 +95,7 @@ module Buy
         player.dex = dex
         player.int = int
         player.lck = lck
-        File.open('../model/playerdata.yml', 'w') {|file| File.write('../model/playerdata.yml', player.to_yaml)}
+        File.open('lib/lotrd/model/playerdata.yml', 'w') {|file| File.write('lib/lotrd/model/playerdata.yml', player.to_yaml)}
         sleep(3)
         ::Store.menu
     end

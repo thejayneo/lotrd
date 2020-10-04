@@ -2,7 +2,7 @@ require_relative '../view/datacheck.rb'
 
 module Check
     def playerData
-        if File.size?("../model/playerdata.yml") == nil
+        if File.size?("lib/lotrd/model/playerdata.rb") == nil
             ::DataCheck.absent
         else
             ::DataCheck.present

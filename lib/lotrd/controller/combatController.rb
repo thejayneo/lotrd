@@ -12,7 +12,7 @@ module CombatSim
         mob1.jobGen
         mob1.nameGen
         #Load player stats
-            player = YAML.load(File.read("../model/playerdata.yml"))
+            player = YAML.load(File.read("lib/lotrd/model/playerdata.yml"))
             @currentPlayerHP = player.hp
             @currentPlayerStr = player.str
             @currentPlayerAgi = player.agi
@@ -119,19 +119,19 @@ module CombatSim
     end
 
     def reward
-        player = YAML.load(File.read("../model/playerdata.yml"))
+        player = YAML.load(File.read("lib/lotrd/model/playerdata.yml"))
         drop = rand(20..200)
         player.gold += drop
-        File.open('../model/playerdata.yml', 'w') {|file| File.write('../model/playerdata.yml', player.to_yaml)}
+        File.open('lib/lotrd/model/playerdata.yml', 'w') {|file| File.write('lib/lotrd/model/playerdata.yml', player.to_yaml)}
         ::CombatView.victory(drop)
     end
 
     def loss
-        player = YAML.load(File.read("m-playerdata.yml"))
+        player = YAML.load(File.read("lib/lotrd/model/playerdata.yml"))
         player.gold = 0
         player.armour = nil
         player.weapon = nil
-        File.open('../model/playerdata.yml', 'w') {|file| File.write('../model/playerdata.yml', player.to_yaml)}
+        File.open('lib/lotrd/model/playerdata.yml', 'w') {|file| File.write('lib/lotrd/model/playerdata.yml', player.to_yaml)}
         ::CombatView.defeat
     end
 
